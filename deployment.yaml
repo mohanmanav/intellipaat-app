@@ -11,9 +11,9 @@ spec:
     metadata:
       labels:
         app: intellipaat-app
-    spec:
-      containers:
+  spec:
+    containers:
       - name: intellipaat-app
-        image: mohanmanav/intellipaat-app:01
+        image: mohanmanav/intellipaat-app:02
         ports:
-        - containerPort: 80
+        - containerPort: 85
