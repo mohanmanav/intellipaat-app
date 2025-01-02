@@ -11,12 +11,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t mohanmanav/intellipaat-app:latest .'
+                bat 'docker build -t mohanmanav/intellipaat-app:03 .'
             }
         }
         stage('Run Container Locally') {
             steps {
-                bat 'docker run -d -p 85:80 --name test-container mohanmanav/intellipaat-app:latest'
+                bat 'docker run -d -p 85:80 --name test-container mohanmanav/intellipaat-app:03'
             }
         }
         stage('Test Application') {
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 bat '''
                 docker login -u <your-username> -p <your-password>
-                docker push mohanmanav/intellipaat-app:latest
+                docker push mohanmanav/intellipaat-app:03
                 '''
             }
         }
