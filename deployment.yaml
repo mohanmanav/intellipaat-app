@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: intellipaat-app
-    spec:  # This is the Pod specification (correct placement of spec here)
+  spec:  # This is the Pod specification (correct placement of spec here)
       containers:
         - name: intellipaat-app
           image: mohanmanav/intellipaat-app:03
