@@ -14,6 +14,6 @@ spec:
     spec:  # This is the Pod specification (correct placement of spec here)
       containers:
         - name: intellipaat-app
-          image: mohanmanav/intellipaat-app:02
+          image: mohanmanav/intellipaat-app:03
           ports:
             - containerPort: 80 # Exposed port on the container
