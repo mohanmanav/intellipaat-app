@@ -31,7 +31,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 bat '''
-                docker login -u <your-username> -p <your-password>
+                docker login -u mohanmanav -p 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
                 docker push mohanmanav/intellipaat-app:03
                 '''
             }
