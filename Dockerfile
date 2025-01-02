@@ -10,7 +10,7 @@ COPY index.html /usr/share/nginx/html/
 # Copy the images folder to the Nginx default directory
 COPY images /usr/share/nginx/html/images/
 
-# Expose port 80 for the web server
+# Expose port for the web server
 EXPOSE 85
 
 # Start the Nginx server
