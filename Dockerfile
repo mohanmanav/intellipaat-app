@@ -11,7 +11,7 @@ COPY index.html /usr/share/nginx/html/
 COPY images /usr/share/nginx/html/images/
 
 # Expose port 80 for the web server
-EXPOSE 85
+EXPOSE 80
 
 # Start the Nginx server
 CMD ["nginx", "-g", "daemon off;"]
