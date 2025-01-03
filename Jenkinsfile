@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        KUBECONFIG = 'C:\\path\\to\\kubeconfig' // Replace with the path to your kubeconfig file
+        KUBECONFIG = 'C:/Users/OGS/.kube/config' 
     }
     stages {
         stage('Clone Repository') {
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 bat '''
                 docker login -u mohanmanav -p Reeta@1980@Manav
-                docker push mohanmanav/intellipaat-app:03
+                docker push mohanmanav/intellipaat-app:04
                 '''
             }
         }
@@ -43,16 +43,5 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            bat 'docker stop test-container || true'
-            bat 'docker rm test-container || true'
-        }
-        success {
-            echo 'Pipeline succeeded!'
-        }
-        failure {
-            echo 'Pipeline failed!'
-        }
-    }
+
 }
