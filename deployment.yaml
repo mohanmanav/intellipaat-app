@@ -26,20 +26,4 @@ spec:
               cpu: 0.2
               memory: "200Mi"
           
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: intellipaat-app
-  labels:
-    app: intellipaat-app
-spec:
-  type: LoadBalancer
-  selector:
-    app: intellipaat-app
-  ports:
-    - protocol: TCP
-      name: http
-      port: 8585
-      targetPort: 8585
-      nodePort: 30000
+          
