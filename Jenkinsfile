@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        KUBECONFIG = 'C:/Users/OGS/.kube/config'
+        KUBECONFIG = 'C:\\path\\to\\kubeconfig' // Replace with the path to your kubeconfig file
     }
     stages {
         stage('Clone Repository') {
