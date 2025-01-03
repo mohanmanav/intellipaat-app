@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        KUBECONFIG = 'C:/Users/OGS/.kube/config'
+        KUBECONFIG = 'C:\\path\\to\\kubeconfig' // Replace with the path to your kubeconfig file
     }
     stages {
         stage('Clone Repository') {
@@ -11,12 +11,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t mohanmanav/intellipaat-app:04 .'
+                bat 'docker build -t mohanmanav/intellipaat-app:03 .'
             }
         }
         stage('Run Container Locally') {
             steps {
-                bat 'docker run -d -p 85:80 --name test-container mohanmanav/intellipaat-app:04'
+                bat 'docker run -d -p 85:80 --name test-container mohanmanav/intellipaat-app:03'
             }
         }
         stage('Test Application') {
@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl apply -f deployment.yaml'
+                bat 'kubectl apply -f deployment.yaml --validate=false'
                 bat 'kubectl apply -f service.yaml'
             }
         }
