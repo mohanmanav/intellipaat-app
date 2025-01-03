@@ -23,7 +23,6 @@ spec:
               containerPort: 8585
           resources:
             limits:
-              cpu: 0.2
+              cpu: 02
               memory: "200Mi"
-          
           
