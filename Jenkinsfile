@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Run Container Locally') {
             steps {
-                bat 'docker run -d -p 8585:8585 --name test-container mohanmanav/intellipaat-app:04'
+                bat 'docker run -d -p 8585:80 --name test-container mohanmanav/intellipaat-app:04'
             }
         }
         stage('Test Application') {
