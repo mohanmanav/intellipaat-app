@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        KUBECONFIG = 'C:/Users/OGS/.kube/config'  // Your Kube config path
+        KUBECONFIG = 'C:/Users/OGS/.kube/config'  
     }
     stages {
         stage('Clone Repository') {
@@ -16,13 +16,13 @@ pipeline {
         }
         stage('Run Container Locally') {
             steps {
-                bat 'docker run -d -p 85:80 --name test-container mohanmanav/intellipaat-app:04'
+                bat 'docker run -d -p 8585:8585 --name test-container mohanmanav/intellipaat-app:04'
             }
         }
         stage('Test Application') {
             steps {
                 bat '''
-                curl -o nul -s -w "%%{http_code}" http://localhost:85 > response.txt
+                curl -o nul -s -w "%%{http_code}" http://localhost:8585 > response.txt
                 set /p RESPONSE=<response.txt
                 if "%RESPONSE%" NEQ "200" exit /b 1
                 '''
@@ -38,8 +38,8 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl apply -f deployment.yaml'  // Apply the Deployment YAML
-                bat 'kubectl apply -f service.yaml'     // Apply the Service YAML
+                bat 'kubectl apply -f deployment.yaml'  
+                bat 'kubectl apply -f service.yaml'     
             }
         }
     }

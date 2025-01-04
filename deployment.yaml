@@ -16,4 +16,4 @@ spec:
         - name: intellipaat-app
           image: mohanmanav/intellipaat-app:04
           ports:
-            - containerPort: 80
+            - containerPort: 8585
