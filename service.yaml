@@ -1,16 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: intellipaat-app
-  labels:
-    app: intellipaat-app
+  name: intellipaat-app-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: intellipaat-app
   ports:
-    - protocol: TCP
-      name: http
-      port: 8585
-      targetPort: 8585
-      nodePort: 30000
+    - port: 80
+      targetPort: 80
+      nodePort: 30007

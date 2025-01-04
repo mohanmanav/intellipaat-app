@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        KUBECONFIG = 'C:/Users/OGS/.kube/config' 
+        KUBECONFIG = 'C:/Users/OGS/.kube/config'  // Your Kube config path
     }
     stages {
         stage('Clone Repository') {
@@ -38,10 +38,9 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl apply -f deployment.yaml'
-                bat 'kubectl apply -f service.yaml'
+                bat 'kubectl apply -f deployment.yaml'  // Apply the Deployment YAML
+                bat 'kubectl apply -f service.yaml'     // Apply the Service YAML
             }
         }
     }
-
 }

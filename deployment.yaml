@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: intellipaat-app
-  labels:
-    app: intellipaat-app
 spec:
   replicas: 1
   selector:
@@ -17,12 +15,5 @@ spec:
       containers:
         - name: intellipaat-app
           image: mohanmanav/intellipaat-app:04
-          imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: 8585
-          resources:
-            limits:
-              cpu: 02
-              memory: "200Mi"
-          
+            - containerPort: 80
