@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: intellipaat-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: intellipaat-app
@@ -11,9 +11,9 @@ spec:
     metadata:
       labels:
         app: intellipaat-app
-      spec:
-        containers:
-        - name: intellipaat-app
-          image: mohanmanav/intellipaat-app:04
-          ports:
-            - containerPort: 8585
+    spec:
+      containers:
+      - name: intellipaat-app
+        image: mohanmanav/intellipaat-app:04
+        ports:
+        - containerPort: 8585
